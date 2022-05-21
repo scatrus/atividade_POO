@@ -24,11 +24,11 @@ public class Loja
     
     public void Menu()
     {
-        Console.WriteLine("Opção Disponíveis:");
+        Console.WriteLine("\nOpção Disponíveis:");
         Console.WriteLine("1 - Inserir Pedido");
         Console.WriteLine("2 - Buscar Pedido");
         Console.WriteLine("3 - Listar Pedido");
-        Console.WriteLine("4 - Remover Pedido");
+        Console.WriteLine("4 - Remover Pedido\n");
         Console.WriteLine("Digite a opção Desejada:");
         
         var opcao = Console.ReadLine();
@@ -84,14 +84,11 @@ public class Loja
         p.valorDoProduto = float.Parse(Console.ReadLine());
         
         Console.Clear();
-        Console.WriteLine("Pedido Inserido com Sucesso!");
         p.imprimirPedido(p.pedidoId);
+        
         AdicionarPedido(p);
-        foreach ( var pedido in ListPedidos)
-        {
-            Console.WriteLine(pedido);
-        }
-        Console.WriteLine(ListPedidos);
+        Console.WriteLine("Pedido Inserido com Sucesso!");
+        
     }
     
     public void ListarPedido()

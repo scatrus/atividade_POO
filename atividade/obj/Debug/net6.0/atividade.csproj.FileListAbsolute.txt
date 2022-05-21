@@ -1,0 +1,15 @@
+/home/ademarjr/RiderProjects/atividade/atividade/bin/Debug/net6.0/atividade
+/home/ademarjr/RiderProjects/atividade/atividade/bin/Debug/net6.0/atividade.deps.json
+/home/ademarjr/RiderProjects/atividade/atividade/bin/Debug/net6.0/atividade.runtimeconfig.json
+/home/ademarjr/RiderProjects/atividade/atividade/bin/Debug/net6.0/atividade.dll
+/home/ademarjr/RiderProjects/atividade/atividade/bin/Debug/net6.0/atividade.pdb
+/home/ademarjr/RiderProjects/atividade/atividade/obj/Debug/net6.0/atividade.csproj.AssemblyReference.cache
+/home/ademarjr/RiderProjects/atividade/atividade/obj/Debug/net6.0/atividade.GeneratedMSBuildEditorConfig.editorconfig
+/home/ademarjr/RiderProjects/atividade/atividade/obj/Debug/net6.0/atividade.AssemblyInfoInputs.cache
+/home/ademarjr/RiderProjects/atividade/atividade/obj/Debug/net6.0/atividade.AssemblyInfo.cs
+/home/ademarjr/RiderProjects/atividade/atividade/obj/Debug/net6.0/atividade.csproj.CoreCompileInputs.cache
+/home/ademarjr/RiderProjects/atividade/atividade/obj/Debug/net6.0/atividade.dll
+/home/ademarjr/RiderProjects/atividade/atividade/obj/Debug/net6.0/refint/atividade.dll
+/home/ademarjr/RiderProjects/atividade/atividade/obj/Debug/net6.0/atividade.pdb
+/home/ademarjr/RiderProjects/atividade/atividade/obj/Debug/net6.0/atividade.genruntimeconfig.cache
+/home/ademarjr/RiderProjects/atividade/atividade/obj/Debug/net6.0/ref/atividade.dll
