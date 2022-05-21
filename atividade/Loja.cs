@@ -38,18 +38,23 @@ public class Loja
             case "1":
                 Console.WriteLine("Inserir Pedido");
                 InserirPedido();
+                Menu();
                 break;
             case "2":
                 Console.WriteLine("Buscar Pedido");
+                Console.WriteLine("Digite o Id do Pedido: ");
                 BuscarPedido();
+                Menu();
                 break;
             case "3":
                 Console.WriteLine("Listar Pedido");
                 ListarPedido();
+                Menu();
                 break;
             case "4":
                 Console.WriteLine("Remover Pedido");
                 RemoverPedido();
+                Menu();
                 break;
             case "":
                 Console.Clear();
@@ -87,9 +92,6 @@ public class Loja
             Console.WriteLine(pedido);
         }
         Console.WriteLine(ListPedidos);
-        
-        Menu();
-
     }
     
     public void ListarPedido()
@@ -98,12 +100,10 @@ public class Loja
         {
             Console.WriteLine($"{pedido.pedidoId} - {pedido.descricaoDoProduto} - {pedido.calcularPrecoTotal()}");
         }
-        Menu();
     }
     
     public void BuscarPedido()
     {
-        Console.WriteLine("Digite o Id do Pedido: ");
         var pedido = Int32.Parse(Console.ReadLine());
         foreach ( var p in ListPedidos)
         {
@@ -116,14 +116,16 @@ public class Loja
                 Console.WriteLine("Pedido não encontrado!");
             }
         }
-        Menu();
     }
     
-    public void RemoverPedido(Pedido p)
+    public void RemoverPedido()
     {
+        ListarPedido();
+        Console.WriteLine("Selecione o id do pedido que deseja deletar.");
+        var id = Int32.Parse(Console.ReadLine());
+        var pedido = ListPedidos.Find(x => x.pedidoId == id);
+        DeletarPedido(pedido);
         Console.Clear();
         Console.WriteLine("Pedido Removido com Sucesso!");
-        DeletarPedido(p);
-        Menu();
     }
 }
