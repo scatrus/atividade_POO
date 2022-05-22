@@ -3,6 +3,7 @@ namespace atividade;
 public class Pedido
 {
     public int pedidoId;
+    public int FuncionarioMatricula;
     public DateTime dataEmissao;
     public int quantidadeDoProduto;
     public float valorDoProduto;
@@ -10,6 +11,7 @@ public class Pedido
 
     public float calcularPrecoTotal()
     {
+        
         var total =  quantidadeDoProduto * valorDoProduto;
         return total;
     }

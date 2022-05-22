@@ -3,6 +3,7 @@ namespace atividade;
 public class Loja
 {
     private List<Pedido> ListPedidos = new List<Pedido>();
+    private Funcionario Func { get; set; } = new Funcionario();
     
     public bool AdicionarPedido(Pedido p)
     {
