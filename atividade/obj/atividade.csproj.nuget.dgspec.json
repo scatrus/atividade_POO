@@ -1,25 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "/home/ademarjr/RiderProjects/atividade/atividade/atividade.csproj": {}
+    "C:\\Users\\mateu\\Downloads\\atividade_POO\\atividade\\atividade.csproj": {}
   },
   "projects": {
-    "/home/ademarjr/RiderProjects/atividade/atividade/atividade.csproj": {
+    "C:\\Users\\mateu\\Downloads\\atividade_POO\\atividade\\atividade.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/ademarjr/RiderProjects/atividade/atividade/atividade.csproj",
+        "projectUniqueName": "C:\\Users\\mateu\\Downloads\\atividade_POO\\atividade\\atividade.csproj",
         "projectName": "atividade",
-        "projectPath": "/home/ademarjr/RiderProjects/atividade/atividade/atividade.csproj",
-        "packagesPath": "/home/ademarjr/.nuget/packages/",
-        "outputPath": "/home/ademarjr/RiderProjects/atividade/atividade/obj/",
+        "projectPath": "C:\\Users\\mateu\\Downloads\\atividade_POO\\atividade\\atividade.csproj",
+        "packagesPath": "C:\\Users\\mateu\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\mateu\\Downloads\\atividade_POO\\atividade\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/ademarjr/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\mateu\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -52,7 +54,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/var/run/host/usr/share/dotnet/sdk/6.0.300/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -19,8 +19,9 @@ public class Loja
 
     public static void Main()
     {
-        var Loja = new Loja();
-        Loja.Menu();
+        //var Loja = new Loja();
+        var func = new Funcionario();
+        func.Login();
     }
     
     public void Menu()
@@ -94,10 +95,11 @@ public class Loja
     
     public void ListarPedido()
     {
-        foreach ( var pedido in ListPedidos)
-        {
-            Console.WriteLine($"{pedido.pedidoId} - {pedido.descricaoDoProduto} - {pedido.calcularPrecoTotal()}");
-        }
+            foreach (var pedido in ListPedidos)
+            {
+                Console.WriteLine($"{pedido.pedidoId} - {pedido.descricaoDoProduto} - {pedido.calcularPrecoTotal()}");
+            }
+        
     }
     
     public void BuscarPedido()
