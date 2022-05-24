@@ -2,8 +2,8 @@ namespace atividade;
 
 public class Funcionario
 {
-    public String nome;
-    public int matricula;
+    public int matricula { get; set; } = 123;
+    private String nome { get; set; } ="Ademar";
 
     public bool Login()
     {
@@ -17,10 +17,9 @@ public class Funcionario
         Console.Clear();
         if(login == 1)
         {
-            Estagiario estagiario = new Estagiario();
             var Loja = new Loja();
-            Loja.Func = estagiario;
-            Loja.Menu();
+            Loja.funcionario = "estagiario";
+            Loja.Menu("estagiario");
             
         }else if (login == 2)
         {
@@ -28,8 +27,8 @@ public class Funcionario
             if (gerente.checkSenha()) //senha ok
             {
                 var Loja = new Loja();
-                Loja.Func = gerente;
-                Loja.Menu();
+                Loja.funcionario = "gerente";
+                Loja.Menu("gerente");
             }
             else
             {

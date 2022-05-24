@@ -3,8 +3,7 @@ namespace atividade;
 public class Loja
 {
     private List<Pedido> ListPedidos = new List<Pedido>();
-    public Funcionario Func { get; set; } = new Funcionario();
-    
+    public String funcionario { get; set; } 
     public bool AdicionarPedido(Pedido p)
     {
         ListPedidos.Add(p);
@@ -19,13 +18,14 @@ public class Loja
     
     public static void Main()
     {
-        Loja l = new Loja();
         var func = new Funcionario();
         func.Login();
     }
     
-    public void Menu()
+    public void Menu(string tipoFuncionario)
     {
+        
+        Console.WriteLine("Funcionário:" + funcionario);
         Console.WriteLine("\nOpção Disponíveis:");
         Console.WriteLine("1 - Inserir Pedido");
         Console.WriteLine("2 - Buscar Pedido");
@@ -43,37 +43,37 @@ public class Loja
             case "1":
                 Console.WriteLine("Inserir Pedido");
                 InserirPedido();
-                Menu();
+                Menu(tipoFuncionario);
                 break;
             case "2":
                 Console.WriteLine("Buscar Pedido");
                 BuscarPedido();
-                Menu();
+                Menu(tipoFuncionario);
                 break;
             case "3":
                 Console.WriteLine("Listar Pedido");
                 ListarPedido();
-                Menu();
+                Menu(tipoFuncionario);
                 break;
             case "4":
                 Console.WriteLine("Remover Pedido");
                 RemoverPedido();
-                Menu();
+                Menu(tipoFuncionario);
                 break;
             case "5":
                 Console.WriteLine("Bye Bye");
                 Environment.Exit(0);
-                Menu();
+                Menu(tipoFuncionario);
                 break;
             case "":
                 Console.Clear();
                 Console.WriteLine("Não pode ser  vazio.Escolha uma das opções");
-                Menu();
+                Menu(tipoFuncionario);
                 break;
             default:
                 Console.Clear();
                 Console.WriteLine("Opção Inválida.Escolha uma das opções");
-                Menu();
+                Menu(tipoFuncionario);
                 break;
         }
     }
@@ -93,7 +93,7 @@ public class Loja
         p.valorDoProduto = float.Parse(Console.ReadLine());
         
         Console.Clear();
-        p.imprimirPedido();
+        p.imprimirPedido(funcionario);
 
         AdicionarPedido(p);
         Console.WriteLine("Pedido Inserido com Sucesso!");
@@ -104,7 +104,7 @@ public class Loja
     {
             foreach (var pedido in ListPedidos)
             {
-                Console.WriteLine($"{pedido.pedidoId} - {pedido.descricaoDoProduto} - {pedido.calcularPrecoTotal()}");
+                Console.WriteLine($"{pedido.pedidoId} - {pedido.descricaoDoProduto} - {pedido.calcularPrecoTotal(pedido.valorDoProduto)}");
             }
         
     }
@@ -120,7 +120,7 @@ public class Loja
         }
         else
         {
-            resultado.imprimirPedido();
+            resultado.imprimirPedido(funcionario);
         }
     }
     
