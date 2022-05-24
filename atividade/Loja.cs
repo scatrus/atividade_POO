@@ -3,7 +3,7 @@ namespace atividade;
 public class Loja
 {
     private List<Pedido> ListPedidos = new List<Pedido>();
-    private Funcionario Func { get; set; } = new Funcionario();
+    public Funcionario Func { get; set; } = new Funcionario();
     
     public bool AdicionarPedido(Pedido p)
     {
@@ -16,10 +16,10 @@ public class Loja
         ListPedidos.Remove(p);
         return true;
     }
-
+    
     public static void Main()
     {
-        //var Loja = new Loja();
+        Loja l = new Loja();
         var func = new Funcionario();
         func.Login();
     }
@@ -30,10 +30,12 @@ public class Loja
         Console.WriteLine("1 - Inserir Pedido");
         Console.WriteLine("2 - Buscar Pedido");
         Console.WriteLine("3 - Listar Pedido");
-        Console.WriteLine("4 - Remover Pedido\n");
+        Console.WriteLine("4 - Remover Pedido");
+        Console.WriteLine("5 - Sair\n");
         Console.WriteLine("Digite a opção Desejada:");
         
         var opcao = Console.ReadLine();
+        
         Console.Clear();
 
         switch (opcao)
@@ -56,6 +58,11 @@ public class Loja
             case "4":
                 Console.WriteLine("Remover Pedido");
                 RemoverPedido();
+                Menu();
+                break;
+            case "5":
+                Console.WriteLine("Bye Bye");
+                Environment.Exit(0);
                 Menu();
                 break;
             case "":
@@ -86,8 +93,8 @@ public class Loja
         p.valorDoProduto = float.Parse(Console.ReadLine());
         
         Console.Clear();
-        p.imprimirPedido(p.pedidoId);
-        
+        p.imprimirPedido();
+
         AdicionarPedido(p);
         Console.WriteLine("Pedido Inserido com Sucesso!");
         
@@ -113,7 +120,7 @@ public class Loja
         }
         else
         {
-            resultado.imprimirPedido(pedido);
+            resultado.imprimirPedido();
         }
     }
     

@@ -3,10 +3,15 @@ namespace atividade;
 public class Gerente:Funcionario
 {
     private String senha = "123";
+    public double calcularDescontoMaior(float valorProduto)
+    {
+        var valorComDesconto = valorProduto *0.80;
+        return valorComDesconto;
+    }
 
     public bool checkSenha()
     {
-        Console.WriteLine("Digite a senha de usuário:");
+        Console.WriteLine("Digite a senha de usuario:");
         var senha = Console.ReadLine();
         if(senha == "123")
         {
@@ -15,12 +20,9 @@ public class Gerente:Funcionario
         }
         else
         {
-            Console.WriteLine("Senha inválida");
+            Console.WriteLine("Senha invalida");
             return false;
         }
     }
-    float calcularDescontoMaior(float valorProduto)
-    {
-        return 0;
-    }
+    
 }

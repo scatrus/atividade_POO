@@ -2,8 +2,9 @@ namespace atividade;
 
 public class Estagiario:Funcionario
 {
-    float calcularDescontoMenor(float valorProduto)
+    public double calcularDescontoMenor(float valorProduto)
     {
-        return 0;
+        var valorComDesconto = valorProduto *0.95;
+        return valorComDesconto;
     }
 }
