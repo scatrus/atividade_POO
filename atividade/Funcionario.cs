@@ -3,7 +3,7 @@ namespace atividade;
 public class Funcionario
 {
     public int matricula { get; set; } = 123;
-    private String nome { get; set; } ="Ademar";
+    private String Nome { get; set; } ="Ademar";
 
     public bool Login()
     {
@@ -19,7 +19,7 @@ public class Funcionario
         {
             var Loja = new Loja();
             Loja.funcionario = "estagiario";
-            Loja.Menu("estagiario");
+            Loja.Menu();
             
         }else if (login == 2)
         {
@@ -28,7 +28,7 @@ public class Funcionario
             {
                 var Loja = new Loja();
                 Loja.funcionario = "gerente";
-                Loja.Menu("gerente");
+                Loja.Menu();
             }
             else
             {

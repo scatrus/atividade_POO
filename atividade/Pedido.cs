@@ -13,7 +13,7 @@ public class Pedido
         var total =  quantidadeDoProduto * valorDoProduto;
         return total;
     }
-    public void imprimirPedido(string tipoFuncionario)
+    public void imprimirPedido(string? tipoFuncionario)
     {
         Console.WriteLine($"N° do Pedido: {pedidoId}");
         Console.WriteLine($"Data do Pedido: {dataEmissao.ToString("dd/MM/yyyy")}");
