@@ -3,47 +3,63 @@ namespace atividade;
 public class Funcionario
 {
     public int matricula { get; set; } = 123;
-    private String Nome { get; set; } ="Ademar";
+    public String Nome { get; set; } ="Ademar";
+    public String tipo { get; set; }
 
     public bool Login()
     {
-        Console.WriteLine("Login");
+        Console.WriteLine("\n=====================");
         Console.WriteLine("Selecione o usuario:");
         Console.WriteLine("1 - Estagiario");
         Console.WriteLine("2 - Gerente");
-        Console.WriteLine("3 - Sair");
+        Console.WriteLine("3 - Sair\n");
+        Console.WriteLine("Opção:");
 
-        var login = Int32.Parse(Console.ReadLine());
-        Console.Clear();
-        if(login == 1)
+        try
         {
-            var Loja = new Loja();
-            Loja.funcionario = "estagiario";
-            Loja.Menu();
-            
-        }else if (login == 2)
-        {
-            Gerente gerente = new Gerente();
-            if (gerente.checkSenha()) //senha ok
+            var login = Int32.Parse(Console.ReadLine());
+            Console.Clear();
+            if (login == 1)
             {
                 var Loja = new Loja();
-                Loja.funcionario = "gerente";
+                var estagiario = new Estagiario();
+                Loja.Func.tipo = "estagiario";
                 Loja.Menu();
+
+            }
+            else if (login == 2)
+            {
+                var gerente = new Gerente();
+                if (gerente.checkSenha()) //senha ok
+                {
+                    var Loja = new Loja();
+                    Loja.Func.tipo = "gerente";
+                    Loja.Menu();
+                }
+                else
+                {
+                    Login();
+                }
+            }
+            else if (login == 3)
+            {
+                Console.WriteLine("Programa finalizado!");
             }
             else
             {
+                Console.WriteLine("Opção invalida!");
                 Login();
             }
+
+            return true;
         }
-        else if (login == 3)
+        catch (FormatException e)
         {
-            Console.WriteLine("Programa finalizado!");
-        }
-        else
-        {
-            Console.WriteLine("Opção invalida!");
+            Console.Clear();
+            Console.WriteLine("Digite uma das opções válidas.");
             Login();
         }
+
         return true;
     }
 }

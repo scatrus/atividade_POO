@@ -3,18 +3,15 @@ namespace atividade;
 public class Loja
 {
     private List<Pedido> _listPedidos = new List<Pedido>();
-    public string? funcionario { get; set; }
-    // private Funcionario func { get; set; } = new Funcionario();
-    private bool AdicionarPedido(Pedido p)
+    public Funcionario Func { get; set; } = new Funcionario();
+    private void AdicionarPedido(Pedido p)
     {
         _listPedidos.Add(p);
-        return true;
     }
 
-    private protected bool DeletarPedido(Pedido p)
+    private void DeletarPedido(Pedido p)
     {
         _listPedidos.Remove(p);
-        return true;
     }
     
     public static void Main()
@@ -25,9 +22,10 @@ public class Loja
     
     public void Menu()
     {
-        
-        Console.WriteLine("Funcionário:" + funcionario);
-        Console.WriteLine("\nOpção Disponíveis:");
+        Console.WriteLine("\n========================================================");
+        Console.WriteLine($"Funcionário {Func.matricula}:{Func.Nome}-{Func.tipo}");
+        Console.WriteLine("========================================================");
+        Console.WriteLine("Opção Disponíveis:"); 
         Console.WriteLine("1 - Inserir Pedido");
         Console.WriteLine("2 - Buscar Pedido");
         Console.WriteLine("3 - Listar Pedido");
@@ -35,112 +33,124 @@ public class Loja
         Console.WriteLine("5 - Alterar Perfil");
         Console.WriteLine("6 - Sair\n");
         Console.WriteLine("Digite a opção Desejada:");
-        
-        var opcao = Console.ReadLine();
-        
-        Console.Clear();
 
-        switch (opcao)
+        try
         {
-            case "1":
-                Console.WriteLine("Inserir Pedido");
-                InserirPedido();
-                Menu();
-                break;
-            case "2":
-                Console.WriteLine("Buscar Pedido");
-                BuscarPedido();
-                Menu();
-                break;
-            case "3":
-                Console.WriteLine("Listar Pedido");
-                ListarPedido();
-                Menu();
-                break;
-            case "4":
-                Console.WriteLine("Remover Pedido");
-                RemoverPedido();
-                Menu();
-                break;
-            case "5":
-                Main();
-                break;
-            case "6":
-                Console.WriteLine("Bye Bye");
-                Environment.Exit(0);
-                break;
-            case "":
-                Console.Clear();
-                Console.WriteLine("Não pode ser  vazio.Escolha uma das opções");
-                Menu();
-                break;
-            default:
-                Console.Clear();
-                Console.WriteLine("Opção Inválida.Escolha uma das opções");
-                Menu();
-                break;
+            var opcao = Console.ReadLine();
+            Console.Clear();
+
+            switch (opcao)
+            {
+                case "1":
+                    Console.WriteLine("Inserir Pedido");
+                    InserirPedido();
+                    Menu();
+                    break;
+                case "2":
+                    Console.WriteLine("Buscar Pedido");
+                    BuscarPedido();
+                    Menu();
+                    break;
+                case "3":
+                    Console.WriteLine("Listar Pedido");
+                    ListarPedido();
+                    Menu();
+                    break;
+                case "4":
+                    Console.WriteLine("Remover Pedido");
+                    RemoverPedido();
+                    Menu();
+                    break;
+                case "5":
+                    Main();
+                    break;
+                case "6":
+                    Console.WriteLine("Bye Bye");
+                    Environment.Exit(0);
+                    break;
+                case "":
+                    Console.Clear();
+                    Console.WriteLine("Não pode ser  vazio.Escolha uma das opções");
+                    Menu();
+                    break;
+                default:
+                    Console.Clear();
+                    Console.WriteLine("Opção Inválida.Escolha uma das opções");
+                    Menu();
+                    break;
+            }
+        }
+        catch (Exception e)
+        {
+            Console.Clear();
+            Console.WriteLine(e.Message);
+            Menu();
         }
     }
-    
-    public void InserirPedido()
+
+    private void InserirPedido()
     {
         try
         {
             Pedido p = new Pedido();
             Console.WriteLine("Digite o ID do pedido:");
-            p.pedidoId = Int32.Parse(Console.ReadLine());
+            p.PedidoId = Int32.Parse(Console.ReadLine());
             // Console.WriteLine("Data do pedido:");
-            p.dataEmissao = DateTime.Now;
+            p.DataEmissao = DateTime.Now;
             Console.WriteLine("Descrição do produto:");
-            p.descricaoDoProduto = Console.ReadLine();
+            p.DescricaoDoProduto = Console.ReadLine();
             Console.WriteLine("Quantidade do produto:");
-            p.quantidadeDoProduto = Int32.Parse(Console.ReadLine() ?? throw new InvalidOperationException());
+            p.QuantidadeDoProduto = Int32.Parse(Console.ReadLine() ?? throw new InvalidOperationException());
             Console.WriteLine("Valor do produto:");
-            p.valorDoProduto = float.Parse(Console.ReadLine());
+            p.ValorDoProduto = float.Parse(Console.ReadLine());
             
             Console.Clear();
-            p.imprimirPedido(funcionario);
+            p.ImprimirPedido(Func.tipo);
 
             AdicionarPedido(p);
             Console.WriteLine("Pedido Inserido com Sucesso!");
         }
         catch (Exception e)
         {
-            Console.WriteLine(e);
-            throw;
+            Console.WriteLine(e.Message);
+            Menu();
         }
     }
-    
-    public void ListarPedido()
+
+    private void ListarPedido()
     {
-            foreach (var pedido in _listPedidos)
-            {
-                Console.WriteLine($"{pedido.pedidoId} - {pedido.descricaoDoProduto} - {pedido.calcularPrecoTotal(pedido.valorDoProduto)}");
-            }
-        
+        if (_listPedidos.Count == 0)
+        {
+            Console.WriteLine("Não há pedidos cadastrados");
+        } 
+        foreach (var pedido in _listPedidos)
+        { 
+                Console.WriteLine($"Pedido:{pedido.PedidoId} - Descrição:{pedido.DescricaoDoProduto} " +
+                                  $"- Valor:{pedido.CalcularPrecoTotal(pedido.ValorDoProduto):0.00##}");
+        }
     }
-    
-    public void BuscarPedido()
+
+    private void BuscarPedido()
     {
         Console.WriteLine("Digite o Id do Pedido: ");
         var pedido = Int32.Parse(Console.ReadLine());
-        var resultado = _listPedidos.Find(x => x.pedidoId == pedido);
+        var resultado = _listPedidos.Find(x => x.PedidoId == pedido);
         if (resultado == null)
         {
             Console.WriteLine("Pedido não encontrado!");
         }
         else
         {
-            resultado.imprimirPedido(funcionario);
+            resultado.ImprimirPedido(Func.ToString());
         }
     }
-    
-    public void RemoverPedido()
+
+    private void RemoverPedido()
     {
         ListarPedido();
         Console.WriteLine("Selecione o id do pedido que deseja deletar.");
         var id = Int32.Parse(Console.ReadLine());
-        var pedido = _listPedidos.Find(x => x.pedidoId == id);
+        var pedido = _listPedidos.Find(x => x.PedidoId == id);
         if (pedido != null)
         {
             DeletarPedido(pedido);

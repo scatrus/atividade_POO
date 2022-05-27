@@ -2,37 +2,38 @@ namespace atividade;
 
 public class Pedido
 {
-    public int pedidoId;
-    public DateTime dataEmissao;
-    public int quantidadeDoProduto;
-    public float valorDoProduto;
-    public string descricaoDoProduto;
+    public int PedidoId;
+    public DateTime DataEmissao;
+    public int QuantidadeDoProduto;
+    public float ValorDoProduto;
+    public string? DescricaoDoProduto;
+    
 
-    public float calcularPrecoTotal(float valorDoProduto)
+    public float CalcularPrecoTotal(float valorDoProduto)
     {
-        var total =  quantidadeDoProduto * valorDoProduto;
+        var total =  QuantidadeDoProduto * valorDoProduto;
         return total;
     }
-    public void imprimirPedido(string? tipoFuncionario)
+    public void ImprimirPedido(String tipoFuncionario)
     {
-        Console.WriteLine($"N° do Pedido: {pedidoId}");
-        Console.WriteLine($"Data do Pedido: {dataEmissao.ToString("dd/MM/yyyy")}");
-        Console.WriteLine($"Descrição do Produto: {descricaoDoProduto}");
-        Console.WriteLine($"Quantidade do Produto: {quantidadeDoProduto}");
-        Console.WriteLine($"Valor do Produto: R$ {valorDoProduto:0.00##}");
-        Console.WriteLine($"Valor Total do Pedido: R$ {calcularPrecoTotal(valorDoProduto):0.00##}");
+        Console.WriteLine($"N° do Pedido: {PedidoId}");
+        Console.WriteLine($"Data do Pedido: {DataEmissao.ToString("dd/MM/yyyy")}");
+        Console.WriteLine($"Descrição do Produto: {DescricaoDoProduto}");
+        Console.WriteLine($"Quantidade do Produto: {QuantidadeDoProduto}");
+        Console.WriteLine($"Valor do Produto: R$ {ValorDoProduto:0.00##}");
+        Console.WriteLine($"Valor Total do Pedido: R$ {CalcularPrecoTotal(ValorDoProduto):0.00##}");
         
         if (tipoFuncionario == "gerente")
         {
             Gerente gerente = new Gerente();
-            var precoComDesconto = Convert.ToSingle(gerente.calcularDescontoMaior(valorDoProduto));
-            Console.WriteLine($"Valor Total do Pedido com Desconto: R$ {calcularPrecoTotal(precoComDesconto):0.00##}\n");
+            var precoComDesconto = Convert.ToSingle(gerente.calcularDescontoMaior(ValorDoProduto));
+            Console.WriteLine($"Valor Total do Pedido com Desconto: R$ {CalcularPrecoTotal(precoComDesconto):0.00##}\n");
         }
         else if (tipoFuncionario == "estagiario")
         {
             Estagiario estagiario = new Estagiario();
-            var precoComDesconto = Convert.ToSingle(estagiario.CalcularDescontoMenor(valorDoProduto));
-            Console.WriteLine($"Valor Total do Pedido com Desconto: R$ {calcularPrecoTotal(precoComDesconto):0.00##}\n");
+            var precoComDesconto = Convert.ToSingle(estagiario.CalcularDescontoMenor(ValorDoProduto));
+            Console.WriteLine($"Valor Total do Pedido com Desconto: R$ {CalcularPrecoTotal(precoComDesconto):0.00##}\n");
 
         }
     }
